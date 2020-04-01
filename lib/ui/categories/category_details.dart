@@ -2,6 +2,7 @@ import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:cinema/ui/components/movie_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class CategoryDetails extends StatefulWidget {
   final String name;
@@ -24,7 +25,7 @@ class _CategoryDetailsState extends State<CategoryDetails> with SingleTickerProv
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.name, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        title: Text(widget.name, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)).tr(context: context),
         bottom: TabBar(
             controller: _tabController,
             labelColor: Colors.white,
@@ -38,8 +39,8 @@ class _CategoryDetailsState extends State<CategoryDetails> with SingleTickerProv
               tabBarIndicatorSize: TabBarIndicatorSize.tab,
             ),
             tabs: [
-              Text('English'),
-              Text('Arabic')
+              Text('English').tr(),
+              Text('Arabic').tr()
             ]),
         elevation: 0.0,
       ),

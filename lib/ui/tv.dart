@@ -4,7 +4,7 @@ import 'package:cinema/ui/play.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class Tv extends StatefulWidget {
   @override
   _TvState createState() => _TvState();
@@ -37,7 +37,7 @@ class _TvState extends State<Tv> with SingleTickerProviderStateMixin{
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20),
-              ),
+              ).tr(context: context),
               centerTitle: true,
               actions: <Widget>[
                 IconButton(
@@ -65,10 +65,10 @@ class _TvState extends State<Tv> with SingleTickerProviderStateMixin{
                       tabBarIndicatorSize: TabBarIndicatorSize.tab,
                     ),
                     tabs: [
-                      Text('Recommended'),
-                      Text('Netflix'),
-                      Text('HBOGO'),
-                      Text('Amazon'),
+                      Text('Recommended').tr(context: context),
+                      Text('Netflix').tr(context: context),
+                      Text('HBOGO').tr(context: context),
+                      Text('Amazon').tr(context: context),
                     ]),
               ),
               pinned: true,
@@ -132,7 +132,7 @@ class _TvState extends State<Tv> with SingleTickerProviderStateMixin{
                                             Text('CNN International',
                                                 style: TextStyle(fontSize: 15,
                                                     fontWeight: FontWeight
-                                                        .bold)),
+                                                        .bold)).tr(context: context),
                                           ],
                                         ),
                                         Container(
@@ -141,14 +141,14 @@ class _TvState extends State<Tv> with SingleTickerProviderStateMixin{
                                               .of(context)
                                               .size
                                               .width * 0.7,
-                                          child: Text('Comedy',
+                                          child: Text('News',
                                             style: TextStyle(fontSize: 12,
                                               color: Theme.of(context).textTheme.title.color.withOpacity(0.6),
 
                                           ),
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 2,
-                                          ),
+                                          ).tr(context: context),
                                         ),
                                       ],
                                     ),

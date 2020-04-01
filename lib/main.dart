@@ -1,5 +1,5 @@
 import 'package:cinema/ui/App.dart';
-import 'package:cinema/ui/theme.dart';
+import 'package:cinema/ui/components/theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,8 +10,8 @@ void main(){
   runApp(EasyLocalization(
     child: MyApp(),
     supportedLocales: [
-      Locale('en', 'US'),
-//      Locale('ar', 'IQ')
+//      Locale('en', 'US'),
+      Locale('ar', 'IQ')
     ],
     path: 'assets/languages',
   ));
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Al Madar ISP',
       debugShowCheckedModeBanner: false,
       navigatorKey: Get.key,
-      theme: mainThemeDark(),
+      theme: mainThemeDark(context),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
       supportedLocales: EasyLocalization.of(context).supportedLocales,
       locale: EasyLocalization.of(context).locale,
       home: App(),
-
     );
   }
 }

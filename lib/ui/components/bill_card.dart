@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class BillCard extends StatelessWidget {
   final String month, type, startedAt, endingDate, status;
   const BillCard({
@@ -26,7 +26,7 @@ class BillCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(month, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, )),
+          Text(month, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, )).tr(context: context),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30),
             child: Row(
@@ -36,9 +36,9 @@ class BillCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text('Type'),
-                      Text('Started at'),
-                      Text('Ending date')
+                      Text('Type').tr(context: context),
+                      Text('Started at').tr(context: context),
+                      Text('Ending date').tr(context: context)
                     ],
                   ),
                 ),
@@ -46,9 +46,9 @@ class BillCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(type, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                    Text(startedAt, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                    Text(endingDate, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                    Text(type, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)).tr(context: context),
+                    Text(startedAt, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)).tr(context: context),
+                    Text(endingDate, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)).tr(context: context),
                   ],
                 ),
               ],

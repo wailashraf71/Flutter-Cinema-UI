@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cinema/ui/movie_details.dart';
+import 'package:cinema/ui/components/movie_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,7 +37,7 @@ class MovieWidget extends StatelessWidget {
                 flex: 0,
                 child: Padding(
                   padding: const EdgeInsets.only(top:5.0, left: 2),
-                  child: Text(title,maxLines: 2, overflow: TextOverflow.ellipsis),
+                  child: Center(child: Text(title,maxLines: 2, overflow: TextOverflow.ellipsis)),
                 )
             ):Container(),
           ],

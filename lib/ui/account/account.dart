@@ -1,7 +1,7 @@
 import 'package:cinema/ui/components/bill_card.dart';
 import 'package:cinema/ui/components/widget_header.dart';
 import 'package:flutter/material.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class Account extends StatefulWidget {
   @override
   _AccountState createState() => _AccountState();
@@ -17,7 +17,7 @@ class _AccountState extends State<Account> {
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20),
-        ),
+        ).tr(context:context),
         centerTitle: true,
         elevation: 0.3,
       ),
@@ -27,7 +27,7 @@ class _AccountState extends State<Account> {
             SizedBox(height: 10),
             WidgetHeader(
               title: 'Profile',
-              button: FlatButton(),
+              button: Container(),
               child: Container(
                 decoration: BoxDecoration(
                     color: Theme.of(context).cardColor,
@@ -47,7 +47,7 @@ class _AccountState extends State<Account> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text('John Doe', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+                    Text('John Doe', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)).tr(context: context),
                     SizedBox(height: 5),
                     Text('email@domain.com', style: TextStyle(fontSize: 15, color: Colors.blueAccent)),
                     SizedBox(height: 5),
@@ -56,7 +56,7 @@ class _AccountState extends State<Account> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)
                       ),
-                      child: Text('Logout'),
+                      child: Text('Logout').tr(context: context),
                     )
                   ],
                 )),
@@ -65,7 +65,7 @@ class _AccountState extends State<Account> {
             SizedBox(height: 30),
             WidgetHeader(
               title: 'Subscription',
-              button: FlatButton(),
+              button: Container(),
               child: Container(
                 child: Center(
                   child: new BillCard(

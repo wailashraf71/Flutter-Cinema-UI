@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cinema/ui/account/Register.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -22,6 +22,8 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    String hintTextEmail =  tr("hintEmail");
+    String hintTextPassword =  tr("hintPassword");
     return SafeArea(
       child: Scaffold(
           resizeToAvoidBottomInset: false,
@@ -62,7 +64,7 @@ class _LoginState extends State<Login> {
                                 fontSize: 35,
                                 fontWeight: FontWeight.bold
                             ),
-                          ),
+                          ).tr(context:context),
                         ),
                         Center(
                           child: Container(
@@ -86,8 +88,9 @@ class _LoginState extends State<Login> {
                                           style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                                           decoration: InputDecoration(
                                               border: InputBorder.none,
-                                              hintText: 'Email',
+                                              hintText: hintTextEmail,
                                             hintStyle: TextStyle(
+                                              height: 1,
                                               color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
                                             ),
                                           ),
@@ -106,8 +109,9 @@ class _LoginState extends State<Login> {
                                           style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                                           decoration: InputDecoration(
                                               border: InputBorder.none,
-                                              hintText: 'Password',
+                                              hintText: hintTextPassword,
                                               hintStyle: TextStyle(
+                                                height: 1,
                                                 color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
                                               )
                                           ),
@@ -119,7 +123,7 @@ class _LoginState extends State<Login> {
                                         width: double.infinity,
                                         height: 47,
                                         child: FlatButton(
-                                          child: Text('Sign In', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+                                          child: Text('Sign In', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)).tr(context: context),
                                           onPressed: () => Get.to(Register()),
                                           padding: EdgeInsets.symmetric(horizontal: 20),
                                           color: Theme.of(context).accentColor,
@@ -132,7 +136,7 @@ class _LoginState extends State<Login> {
                                         onPressed: (){},
                                         child: Text('Forgot Password?', style: TextStyle(
                                             color: Theme.of(context).accentColor,
-                                            fontWeight: FontWeight.bold),),
+                                            fontWeight: FontWeight.bold),).tr(context: context),
                                       )
                                     ],
                                   ),
@@ -150,7 +154,7 @@ class _LoginState extends State<Login> {
                               Text("Don't have an account? ",
                                   style: TextStyle(
                                     color: Theme.of(context).textTheme.title.color.withOpacity(0.4),
-                                  )),
+                                  )).tr(context: context),
                               Container(
                                 child: GestureDetector(
                                   onTap: () {
@@ -158,7 +162,7 @@ class _LoginState extends State<Login> {
                                   },
                                   child: Text("Sign Up", style: TextStyle(
                                       color: Theme.of(context).accentColor,
-                                      fontWeight: FontWeight.bold)),
+                                      fontWeight: FontWeight.bold)).tr(context: context),
                                 ),
                               ),
                             ],

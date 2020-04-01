@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class MovieDetails extends StatefulWidget {
   final int id;
@@ -97,17 +98,15 @@ class _MovieDetailsState extends State<MovieDetails> with SingleTickerProviderSt
                                       child: new BackdropFilter(
                                         filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
                                         child: new Container(
+                                          alignment: Alignment.centerRight,
                                           width: 150.0,
                                           height: 35.0,
                                           decoration: new BoxDecoration(
                                               color: Colors.white10.withOpacity(0.1),
                                           ),
-                                          child: Row(
-                                            children: <Widget>[
-                                              SizedBox(width: 50),
-                                              Center(child: Text('Watch Now',style: TextStyle(color: Colors.white),)),
-                                            ],
-                                          ),
+                                          child: Container(
+                                              child: Center(child: Text('Watch Now',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)).tr()),
+                                          padding: EdgeInsets.only(left: 20),),
                                         ),
                                       ),
                                     ),
@@ -148,7 +147,7 @@ class _MovieDetailsState extends State<MovieDetails> with SingleTickerProviderSt
                           fontSize: 12,
                           color: Theme.of(context).secondaryHeaderColor
                       ),
-                    ),
+                    ).tr(context: context),
                     Text(
                       'Stranger Things',
                       style: TextStyle(
@@ -182,7 +181,7 @@ class _MovieDetailsState extends State<MovieDetails> with SingleTickerProviderSt
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 20),
-                        child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+                        child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.').tr(context: context)
                     ),
                   ],
                 )
@@ -197,13 +196,13 @@ class _MovieDetailsState extends State<MovieDetails> with SingleTickerProviderSt
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Text('Director: '),
+                          Text('Director: ').tr(context: context),
                           Text('Shawn Levy', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                         ],
                       ),
                       Row(
                         children: <Widget>[
-                          Text('Year: '),
+                          Text('Year: ').tr(context: context),
                           Text('2020', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                         ],
                       ),
@@ -216,7 +215,7 @@ class _MovieDetailsState extends State<MovieDetails> with SingleTickerProviderSt
             padding: EdgeInsets.symmetric(vertical: 20),
             sliver: SliverToBoxAdapter(
               child: ListOfMovies(
-                title: 'Relative ',
+                title: 'Relatives',
                 buttonText: 'See All',
                 buttonFunction: () => Get.to(CategoryDetails(name: 'Category Name or Tag',)),
                 movies: movies[0],

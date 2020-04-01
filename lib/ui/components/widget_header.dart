@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class WidgetHeader extends StatelessWidget {
   final String title;
@@ -22,7 +23,7 @@ class WidgetHeader extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(title ?? '', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
+                      Text(title ?? '', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)).tr(context: context),
                       button?? Container()
                     ],
                   ),

@@ -5,7 +5,8 @@ import 'package:cinema/ui/categories/category_details.dart';
 import 'package:cinema/ui/components/category_button.dart';
 import 'package:cinema/ui/components/list_of_movies.dart';
 import 'package:cinema/ui/components/widget_header.dart';
-import 'package:cinema/ui/movie_details.dart';
+import 'package:cinema/ui/components/movie_details.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -35,7 +36,7 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
       'image': 'https://cdn.europosters.eu/image/750/posters/sherlock-series-4-iconic-i33910.jpg'
     },
     {
-      'name': 'Spotlight',
+      'name': 'Moonlight',
       'image': 'https://images-na.ssl-images-amazon.com/images/I/71rNJQ2g-EL._AC_SY741_.jpg'
     },
     {
@@ -55,6 +56,7 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -62,7 +64,7 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20),
-        ),
+        ).tr(context: context),
 
         centerTitle: true,
         elevation: 0.3,
@@ -71,73 +73,7 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
         ],
       ),
 
-      drawer: Drawer(
-        child: Container(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      width: 100,
-                      height: 60,
-                      child: CircleAvatar(
-                        child: FaIcon(FontAwesomeIcons.image, color: Theme.of(context).textTheme.title.color,),
-                        backgroundColor: Theme.of(context).cardColor,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Text('Cinema App'),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  image: DecorationImage(
-                    image: CachedNetworkImageProvider(
-                      'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
-                    ),
-                    fit: BoxFit.cover
-                  )
-                ),
-              ),
-              ListTile(
-                title: Text('New Movies'),
-                onTap: () => Get.to(Categories()),
-              ),
-              ListTile(
-                title: Text('Top Rated'),
-                onTap: () => Get.to(Categories()),
-              ),
-              ListTile(
-                title: Text('Categories'),
-                onTap: () => Get.to(Categories()),
-              ),
-              Divider(),
-              ListTile(
-                title: Text('Sign In'),
-                onTap: () => Get.to(Login()),
-              ),
-              ListTile(
-                title: Text('Terms & Conditions'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: Text('About'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
+      drawer: buildDrawer(context),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -149,14 +85,14 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
             ),
             SizedBox(height: 25),
             ListOfMovies(
-              title: 'In Theaters ',
+              title: 'In Theaters',
               buttonText: 'See All',
               buttonFunction: () => Get.to(CategoryDetails(name: 'In Theaters')),
               movies: movies[0],
             ),
             SizedBox(height: 25),
             ListOfMovies(
-              title: 'Box Office ',
+              title: 'Box Office',
               buttonText: 'See All',
               buttonFunction: () => Get.to(CategoryDetails(name: 'Box Office')),
               movies: movies[1],
@@ -167,19 +103,85 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
             buildCategories(),
             SizedBox(height: 25),
             ListOfMovies(
-              title: 'New Arrivals ',
+              title: 'New Arrivals',
               buttonText: 'See All',
               buttonFunction: () => Get.to(CategoryDetails(name: 'New Arrivals',)),
               movies: movies[2],
             ),
             SizedBox(height: 25),
             ListOfMovies(
-              title: 'Most Popular ',
+              title: 'Most Popular',
               buttonText: 'See All',
-              buttonFunction: () => Get.to(CategoryDetails(name: 'Most Popular',)),
+              buttonFunction: () => Get.to(CategoryDetails(name: 'Most Popular')),
               movies: movies[3],
             ),
             SizedBox(height: 25),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Drawer buildDrawer(BuildContext context) {
+    return Drawer(
+      child: Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 60,
+                    child: CircleAvatar(
+                      child: FaIcon(FontAwesomeIcons.image, color: Theme.of(context).textTheme.title.color,),
+                      backgroundColor: Theme.of(context).cardColor,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text('Cinema App').tr(context: context),
+                ],
+              ),
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                image: DecorationImage(
+                  image: CachedNetworkImageProvider(
+                    'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+                  ),
+                  fit: BoxFit.cover
+                )
+              ),
+            ),
+            ListTile(
+              title: Text('New Movies').tr(context: context),
+              onTap: () => Get.to(Categories()),
+            ),
+            ListTile(
+              title: Text('Top Rated').tr(context: context),
+              onTap: () => Get.to(Categories()),
+            ),
+            ListTile(
+              title: Text('Categories').tr(context: context),
+              onTap: () => Get.to(Categories()),
+            ),
+            Divider(),
+            ListTile(
+              title: Text('Sign In').tr(context: context),
+              onTap: () => Get.to(Login()),
+            ),
+            ListTile(
+              title: Text('Terms & Conditions').tr(context: context),
+              onTap: () {
+              },
+            ),
+            ListTile(
+              title: Text('About').tr(context: context),
+              onTap: () {
+              },
+            ),
           ],
         ),
       ),
@@ -192,9 +194,8 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
         button: InkWell(
             onTap: () => Get.to(CategoryDetails(name: 'Trending',)),
             child: Row(
-
               children: <Widget>[
-                Text('See All', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12)),
+                Text('See All', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12)).tr(),
                 Icon(Icons.chevron_right),
               ],
             )),
@@ -257,7 +258,7 @@ class _MoviesState extends State<Movies> with SingleTickerProviderStateMixin{
           },
           child: Row(
             children: <Widget>[
-              Text('See All', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12)),
+              Text('See All', style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12)).tr(),
               Icon(Icons.chevron_right)
             ],
           )),

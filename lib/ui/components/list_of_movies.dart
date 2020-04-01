@@ -2,7 +2,7 @@ import 'package:cinema/ui/components/movie_widget.dart';
 import 'package:cinema/ui/components/widget_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class ListOfMovies extends StatelessWidget {
   final String title, buttonText;
   final Function buttonFunction;
@@ -18,7 +18,7 @@ class ListOfMovies extends StatelessWidget {
             onTap: buttonFunction,
             child: Row(
               children: <Widget>[
-                Text(buttonText, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12)),
+                Text(buttonText, style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12)).tr(context: context),
                 Icon(Icons.chevron_right),
               ],
             )),

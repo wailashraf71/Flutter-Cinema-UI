@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class Categories extends StatelessWidget {
   final List<String> dummyNames = [' Fantasy', 'Comedy', 'Sci-fi', 'Action', 'Adventure', 'Romance'];
-  List<String> links = [
+  final List<String> links = [
     'https://gizmostory.com/wp-content/uploads/2019/12/maxresdefault-4-1.jpg',
     'https://img.over-blog-kiwi.com/3/93/55/67/20191129/ob_e4a5f9_avrkzcqov1r0naxhepzjkmszrmb.jpg',
     'https://wallpaperaccess.com/full/645142.jpg',

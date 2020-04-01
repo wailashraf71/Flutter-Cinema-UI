@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cinema/ui/account/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -25,6 +26,10 @@ class _RegisterState extends State<Register> {
   }
   @override
   Widget build(BuildContext context) {
+    String hintTextEmail =  tr("hintEmail");
+    String hintTextName =  tr("hintName");
+    String hintTextPassword =  tr("hintPassword");
+    String hintTextPasswordConfirm =  tr("hintPasswordConfirm");
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -65,7 +70,7 @@ class _RegisterState extends State<Register> {
                             fontSize: 35,
                             fontWeight: FontWeight.bold
                           ),
-                        ),
+                        ).tr(context: context),
                       ),
                       Center(
                         child: Container(
@@ -89,8 +94,9 @@ class _RegisterState extends State<Register> {
                                         style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            hintText: 'Email',
+                                            hintText: hintTextEmail,
                                           hintStyle: TextStyle(
+                                            height: 1,
                                             color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
                                           )
                                         ),
@@ -110,8 +116,9 @@ class _RegisterState extends State<Register> {
                                         style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            hintText: 'Name',
+                                            hintText: hintTextName,
                                             hintStyle: TextStyle(
+                                              height: 1,
                                               color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
                                             )
                                         ),
@@ -131,8 +138,9 @@ class _RegisterState extends State<Register> {
                                         style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            hintText: 'Password',
+                                            hintText: hintTextPassword,
                                             hintStyle: TextStyle(
+                                              height: 1,
                                               color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
                                             )
                                         ),
@@ -151,8 +159,9 @@ class _RegisterState extends State<Register> {
                                         style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            hintText: 'Confirm Password',
+                                            hintText: hintTextPasswordConfirm,
                                             hintStyle: TextStyle(
+                                              height: 1,
                                               color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4),
                                             )
                                         ),
@@ -166,7 +175,7 @@ class _RegisterState extends State<Register> {
                                       child: FlatButton(
                                         child: Text('Sign in', style: TextStyle(
                                           color: Theme.of(context).textTheme.title.color,
-                                        ),),
+                                        ),).tr(context: context),
                                         onPressed: (){},
                                         padding: EdgeInsets.symmetric(horizontal: 20),
                                         color: Theme.of(context).accentColor,
@@ -190,13 +199,13 @@ class _RegisterState extends State<Register> {
                           children: <Widget>[
                             Text("Do you have an account? ", style: TextStyle(
                               color: Theme.of(context).textTheme.title.color.withOpacity(0.4),
-                            )),
+                            )).tr(context: context),
                             Container(
                               child: GestureDetector(
                                 onTap: () => Get.to(Login()),
                                   child: Text("Sign In", style: TextStyle(
                                       color: Theme.of(context).accentColor,
-                                      fontWeight: FontWeight.bold)),
+                                      fontWeight: FontWeight.bold)).tr(context: context),
                               ),
                             ),
                           ],

@@ -1,7 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class Notifications extends StatefulWidget {
   @override
   _NotificationsState createState() => _NotificationsState();
@@ -17,7 +16,7 @@ class _NotificationsState extends State<Notifications> {
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20),
-        ),
+        ).tr(context: context),
 
         centerTitle: true,
         elevation: 0.3,
@@ -63,7 +62,7 @@ class _NotificationsState extends State<Notifications> {
                                           Text('Did you pay for your subscription?',
                                               style: TextStyle(fontSize: 15,
                                                   fontWeight: FontWeight
-                                                      .bold)),
+                                                      .bold)).tr(context: context),
                                         ],
                                       ),
                                       Container(
@@ -75,11 +74,10 @@ class _NotificationsState extends State<Notifications> {
                                         child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                                           style: TextStyle(fontSize: 12,
                                             color: Theme.of(context).textTheme.title.color.withOpacity(0.6),
-
                                           ),
                                           overflow: TextOverflow.ellipsis,
                                           maxLines: 2,
-                                        ),
+                                        ).tr(context: context),
                                       ),
                                     ],
                                   ),
