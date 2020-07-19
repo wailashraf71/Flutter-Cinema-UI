@@ -9,4 +9,4 @@ Details
 - Easy to integrate with REST API
 
 
-![Screenshot](Flutter Cinema UI .png)
+![Flutter Cinema UI](https://user-images.githubusercontent.com/18173312/87867407-28339280-c995-11ea-9605-ea23ff6fc067.png)
