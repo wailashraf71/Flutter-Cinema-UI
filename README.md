@@ -7,3 +7,6 @@ Details
 - Dark theme
 - Modern design 
 - Easy to integrate with REST API
+
+
+![Screenshot](Flutter Cinema UI .png)
